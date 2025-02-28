@@ -7,7 +7,7 @@ export default function AiSection({ compoundFormula }) {
   const [isLoading, setIsLoading] = useState(false);
 
   const serverPort = process.env.PORT || 5000;
-  const BASE_URL = `http://localhost:${serverPort}`;
+  const BASE_URL = `https://molecule-visualiser.vercel.app:${serverPort}`;
   console.log(BASE_URL)
 
   const handleGetData = () => {
