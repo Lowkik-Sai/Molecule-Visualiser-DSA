@@ -7,16 +7,12 @@ app.use(express.json());
 app.use(cors());
 require("dotenv").config();
 
-app.use("/", mainRouter);
+// ✅ Change "/" to "/api"
+app.use("/api", mainRouter);
 
-app.get("/test", (req, res) => {
-  res.status(200).json("Welcome to Molecule Visualizer");
+app.get("/api/test", (req, res) => {
+  res.status(200).json({ message: "Welcome to Molecule Visualizer" });
 });
-
-// ❌ REMOVE THIS FOR VERCEL
-// app.listen(process.env.PORT || 3000, function() {
-//   console.log("Server listening on port %d in %s mode", this.address().port, app.settings.env);
-// });
 
 // ✅ EXPORT APP (Required for Vercel)
 module.exports = app;
