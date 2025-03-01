@@ -7,12 +7,7 @@ app.use(express.json());
 app.use(cors());
 require("dotenv").config();
 
-app.use("/", mainRouter);
-
-app.use((req, res, next) => {
-  console.log(`Incoming request: ${req.method} ${req.url}`);
-  next();
-});
+app.use("/api", mainRouter);
 
 app.get("/test", (req, res) => {
   res.status(200).json("Welcome to Molecule Visualizer");
