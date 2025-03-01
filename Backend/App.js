@@ -1,16 +1,21 @@
-const express = require('express');
-const cors = require('cors');
+const express = require("express");
+const cors = require("cors");
 const app = express();
-const mainRouter = require('./mainRouter');
+const mainRouter = require("./mainRouter");
 
 app.use(express.json());
 app.use(cors());
-require('dotenv').config();
+require("dotenv").config();
 
-app.use('/', mainRouter);
+app.use("/", mainRouter);
+
+app.use((req, res, next) => {
+  console.log(`Incoming request: ${req.method} ${req.url}`);
+  next();
+});
 
 app.get("/test", (req, res) => {
-    res.status(200).json("Welcome to Molecule Visualizer");
+  res.status(200).json("Welcome to Molecule Visualizer");
 });
 
 // ❌ REMOVE THIS FOR VERCEL

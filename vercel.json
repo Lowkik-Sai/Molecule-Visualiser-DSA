@@ -14,11 +14,11 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "Backend/App.js"
+      "dest": "/Backend/App.js"
     },
     {
       "src": "/(.*)",
-      "dest": "molecule-visualiser/build/$1"
+      "dest": "/molecule-visualiser/build/$1"
     }
   ]
 }
